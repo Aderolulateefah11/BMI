@@ -3,11 +3,16 @@ function calculateBMI(){
     var weight= parseFloat(document.getElementById('weight').value);
 
     
-    if (weight> 0 && height > 0){
-        var bmi = weight/ (height * height);
-        document.getElementById('result').innerHTML ="Your BMI is " + bmi.toFixed(2);
-    }else{
-        document.getElementById('result').innerHTML='Please enter valid values for weight and height'
-    }
+if (isNaN(height) || isNaN(weight)  || height<=0 || weight<=0 ){
+    document.getElementById('result').innerHTML="please enter valid height and weight";
+    return;
+
 
 }
+
+var bmi = weight/((height/ 100) * (height/ 100));
+var result="Your BMI is " + bmi.toFixed(2);
+document.getElementById('result').innerHTML=result;
+}
+
+
